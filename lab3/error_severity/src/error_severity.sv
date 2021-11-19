@@ -6,21 +6,10 @@
 //2) Create a macro that allows to control the severity of error reporting 
 //among $warning(), $info(), $error() or $fatal()
 
-module error_severity;
+module error_severity();
 
-//`define warning
-//`define info
-//`define error
-//`define fatal
+`include "error_severity_macro.def"
 
-`ifdef warning
-	$warning("This is a warning message");
-`elsif info
-	$info("This is an info message");
-`elsif error
-	$error("This is an error message");
-`elsif fatal
-	$fatal("This is a fatal message");
-`endif
+`ERROR_SEVERITY("ERROR");
 
 endmodule

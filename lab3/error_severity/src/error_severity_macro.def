@@ -1,0 +1,15 @@
+`define ERROR_SEVERITY(error_severity="WARNING")\
+generate case(``error_severity)\
+   "WARNING":\
+   	$warning("WARNING: This is a warning message from %s, line %d",\
+	`__FILE__, `__LINE__);\
+   "INFO":\
+        $info("INFO: This is an info message from %s, line %d",\
+        `__FILE__, `__LINE__);\
+   "ERROR":\
+        $error("ERROR: This is an error message from %s, line %d",\
+        `__FILE__, `__LINE__);\
+   "FATAL":\
+        $fatal("FATAL: This is a fatal message from %s, line %d",\
+        `__FILE__, `__LINE__);\
+endcase endgenerate
